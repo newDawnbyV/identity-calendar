@@ -2,7 +2,7 @@
   "name": "Identity Calendar",
   "short_name": "Identity Cal",
   "description": "Don't manage time. Design your identity.",
-  "start_url": "/",
+  "start_url": "/identity-calendar/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
