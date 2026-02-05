@@ -4,7 +4,7 @@ const identityGuides = {
     creator: {
         title: "The Creator",
         tagline: "I am someone who creates meaningful work",
-        color: "creator",
+        color: "orange",
         
         research: {
             title: "📊 What Research Shows",
@@ -84,7 +84,7 @@ const identityGuides = {
     leader: {
         title: "The Leader",
         tagline: "I am someone who empowers others",
-        color: "leader",
+        color: "teal",
         
         research: {
             title: "📊 What Research Shows",
@@ -164,7 +164,7 @@ const identityGuides = {
     athlete: {
         title: "The Athlete",
         tagline: "I am someone who honors my body",
-        color: "athlete",
+        color: "green",
         
         research: {
             title: "📊 What Research Shows",
@@ -244,7 +244,7 @@ const identityGuides = {
     scholar: {
         title: "The Scholar",
         tagline: "I am someone who grows every day",
-        color: "scholar",
+        color: "purple",
         
         research: {
             title: "📊 What Research Shows",
