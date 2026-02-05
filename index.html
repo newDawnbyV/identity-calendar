@@ -100,6 +100,128 @@
             line-height: 1;
         }
 
+        /* Modal for adding/editing blocks */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
         /* Header */
         .header {
             text-align: center;
@@ -331,6 +453,35 @@
             color: white;
         }
 
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn.reset {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .action-btn.reset:hover {
+            background: #fecaca;
+        }
+
         /* Progress Bar */
         .progress-section {
             margin-bottom: 2rem;
@@ -387,6 +538,17 @@
             margin-top: 0.5rem;
         }
 
+        /* Edit mode indicator */
+        .edit-mode-banner {
+            background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
         /* Calendar Grid */
         .calendar-grid {
             overflow-x: auto;
@@ -436,10 +598,15 @@
             height: 48px;
             position: relative;
             transition: background 0.2s;
+            cursor: pointer;
         }
 
         .calendar-table td:hover {
-            background: #f8fafc;
+            background: #f1f5f9;
+        }
+
+        .calendar-table td.has-block {
+            cursor: default;
         }
 
         .time-cell {
@@ -448,6 +615,11 @@
             color: #64748b;
             text-align: center;
             font-weight: 500;
+            cursor: default;
+        }
+
+        .time-cell:hover {
+            background: #f8fafc;
         }
 
         /* Energy Zones */
@@ -612,27 +784,6 @@
             margin-top: 2rem;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            color: white;
-            border: none;
-            border-radius: 3rem;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-
         .cta-quote {
             font-size: 0.875rem;
             color: #64748b;
@@ -705,6 +856,16 @@
             .identity-grid {
                 grid-template-columns: 1fr;
             }
+
+            .calendar-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -720,6 +881,71 @@
         <span>📱 Install Identity Calendar as an app!</span>
         <button class="install-btn" id="install-btn">Install</button>
         <button class="close-banner" id="close-banner">×</button>
+    </div>
+
+    <!-- Add/Edit Block Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Add Time Block</h3>
+                <button class="modal-close" id="modal-close">×</button>
+            </div>
+
+            <form id="block-form">
+                <div class="form-group">
+                    <label class="form-label">Day</label>
+                    <select class="form-select" id="block-day" required>
+                        <option value="0">Monday</option>
+                        <option value="1">Tuesday</option>
+                        <option value="2">Wednesday</option>
+                        <option value="3">Thursday</option>
+                        <option value="4">Friday</option>
+                        <option value="5">Saturday</option>
+                        <option value="6">Sunday</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Start Time</label>
+                    <select class="form-select" id="block-hour" required>
+                        <!-- Generated dynamically -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Duration (hours)</label>
+                    <select class="form-select" id="block-duration" required>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                        <option value="3">3 hours</option>
+                        <option value="4">4 hours</option>
+                        <option value="5">5 hours</option>
+                        <option value="6">6 hours</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Label</label>
+                    <input type="text" class="form-input" id="block-label" placeholder="e.g., Deep Work, Workout, Meeting" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Identity Type</label>
+                    <select class="form-select" id="block-type" required>
+                        <option value="creator">The Creator</option>
+                        <option value="leader">The Leader</option>
+                        <option value="athlete">The Athlete</option>
+                        <option value="scholar">The Scholar</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="delete-btn" style="display: none;">Delete</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="container">
@@ -832,6 +1058,10 @@
 
         <!-- Calendar Card -->
         <div class="card">
+            <div class="edit-mode-banner">
+                ✏️ Click any empty cell to add a time block, or click existing blocks to edit them
+            </div>
+
             <div class="calendar-header">
                 <div>
                     <h2>Your 168 Hours</h2>
@@ -844,6 +1074,16 @@
                     <button class="view-btn active" data-view="energy">Energy View</button>
                     <button class="view-btn" data-view="identity">Identity View</button>
                 </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn reset" id="reset-btn">
+                    <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Reset to Sample Week
+                </button>
             </div>
 
             <!-- Progress Bar -->
@@ -915,12 +1155,6 @@
 
         <!-- Call to Action -->
         <div class="cta-section">
-            <button class="cta-button">
-                <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                </svg>
-                Design Your Week
-            </button>
             <p class="cta-quote">"The only way to do great work is to love what you do." - Steve Jobs</p>
         </div>
     </div>
@@ -932,7 +1166,6 @@
         const installBtn = document.getElementById('install-btn');
         const closeBanner = document.getElementById('close-banner');
 
-        // Check if already installed
         if (window.matchMedia('(display-mode: standalone)').matches) {
             console.log('App is already installed');
         }
@@ -975,7 +1208,7 @@
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('/identity-calendar/service-worker.js')
                     .then(registration => {
                         console.log('Service Worker registered:', registration);
                     })
@@ -985,7 +1218,7 @@
             });
         }
 
-        // Data - using localStorage for persistence
+        // Data
         const identities = {
             creator: {
                 tagline: 'I am someone who creates meaningful work',
@@ -1030,6 +1263,106 @@
         let timeBlocks = JSON.parse(localStorage.getItem('timeBlocks')) || defaultTimeBlocks;
         let currentIdentity = localStorage.getItem('currentIdentity') || 'creator';
         let currentView = localStorage.getItem('currentView') || 'energy';
+        let editingBlockIndex = null;
+
+        // Modal management
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalTitle = document.getElementById('modal-title');
+        const modalClose = document.getElementById('modal-close');
+        const blockForm = document.getElementById('block-form');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const deleteBtn = document.getElementById('delete-btn');
+
+        // Populate hour select
+        const blockHourSelect = document.getElementById('block-hour');
+        for (let hour = 6; hour <= 22; hour++) {
+            const option = document.createElement('option');
+            option.value = hour;
+            option.textContent = formatHour(hour);
+            blockHourSelect.appendChild(option);
+        }
+
+        function openModal(day = null, hour = null, blockIndex = null) {
+            editingBlockIndex = blockIndex;
+            
+            if (blockIndex !== null) {
+                // Editing existing block
+                const block = timeBlocks[blockIndex];
+                modalTitle.textContent = 'Edit Time Block';
+                document.getElementById('block-day').value = block.day;
+                document.getElementById('block-hour').value = block.startHour;
+                document.getElementById('block-duration').value = block.duration;
+                document.getElementById('block-label').value = block.label;
+                document.getElementById('block-type').value = block.type;
+                deleteBtn.style.display = 'block';
+            } else {
+                // Adding new block
+                modalTitle.textContent = 'Add Time Block';
+                blockForm.reset();
+                if (day !== null) document.getElementById('block-day').value = day;
+                if (hour !== null) document.getElementById('block-hour').value = hour;
+                document.getElementById('block-type').value = currentIdentity;
+                deleteBtn.style.display = 'none';
+            }
+            
+            modalOverlay.classList.add('show');
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('show');
+            editingBlockIndex = null;
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+
+        blockForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const newBlock = {
+                day: parseInt(document.getElementById('block-day').value),
+                startHour: parseInt(document.getElementById('block-hour').value),
+                duration: parseInt(document.getElementById('block-duration').value),
+                label: document.getElementById('block-label').value,
+                type: document.getElementById('block-type').value
+            };
+
+            if (editingBlockIndex !== null) {
+                // Update existing block
+                timeBlocks[editingBlockIndex] = newBlock;
+            } else {
+                // Add new block
+                timeBlocks.push(newBlock);
+            }
+
+            saveState();
+            generateCalendar();
+            updateStats();
+            closeModal();
+        });
+
+        deleteBtn.addEventListener('click', () => {
+            if (editingBlockIndex !== null && confirm('Delete this time block?')) {
+                timeBlocks.splice(editingBlockIndex, 1);
+                saveState();
+                generateCalendar();
+                updateStats();
+                closeModal();
+            }
+        });
+
+        // Reset button
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            if (confirm('Reset to sample week? This will delete your custom schedule.')) {
+                timeBlocks = [...defaultTimeBlocks];
+                saveState();
+                generateCalendar();
+                updateStats();
+            }
+        });
 
         // State management functions
         function saveState() {
@@ -1086,9 +1419,11 @@
                     cell.dataset.hour = hour;
                     
                     // Check if this cell is the start of a block
-                    const block = timeBlocks.find(b => b.day === dayIdx && b.startHour === hour);
+                    const blockIndex = timeBlocks.findIndex(b => b.day === dayIdx && b.startHour === hour);
+                    const block = blockIndex >= 0 ? timeBlocks[blockIndex] : null;
                     
                     if (block) {
+                        cell.classList.add('has-block');
                         const blockDiv = document.createElement('div');
                         blockDiv.className = `time-block ${block.type}`;
                         blockDiv.style.height = `${block.duration * 48 - 4}px`;
@@ -1096,7 +1431,17 @@
                             <div class="block-label">${block.label}</div>
                             <div class="block-duration">${block.duration}h</div>
                         `;
+                        blockDiv.addEventListener('click', () => openModal(null, null, blockIndex));
                         cell.appendChild(blockDiv);
+                    } else {
+                        // Only add click handler if cell is not occupied by a block
+                        const isOccupied = timeBlocks.some(b => 
+                            b.day === dayIdx && hour >= b.startHour && hour < b.startHour + b.duration
+                        );
+                        
+                        if (!isOccupied) {
+                            cell.addEventListener('click', () => openModal(dayIdx, hour));
+                        }
                     }
                     
                     row.appendChild(cell);
