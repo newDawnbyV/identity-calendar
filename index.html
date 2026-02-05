@@ -40,67 +40,7 @@
             margin: 0 auto;
         }
 
-        /* Install Banner */
-        .install-banner {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 3rem;
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
-            display: none;
-            align-items: center;
-            gap: 1rem;
-            z-index: 1000;
-            animation: slideUp 0.3s ease;
-        }
-
-        .install-banner.show {
-            display: flex;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateX(-50%) translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .install-btn {
-            background: white;
-            color: #6366f1;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .install-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .close-banner {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.25rem;
-            line-height: 1;
-        }
-
-        /* Modal for adding/editing blocks */
+        /* Modal overlays */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -113,6 +53,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            overflow-y: auto;
         }
 
         .modal-overlay.show {
@@ -123,8 +64,10 @@
             background: white;
             border-radius: 1.5rem;
             padding: 2rem;
-            max-width: 500px;
+            max-width: 700px;
             width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
@@ -136,7 +79,7 @@
         }
 
         .modal-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
             color: #1e293b;
         }
@@ -152,6 +95,149 @@
             height: 2rem;
         }
 
+        /* Identity Guide Modal */
+        .guide-modal {
+            max-width: 800px;
+        }
+
+        .guide-tagline {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .guide-section {
+            margin-bottom: 2rem;
+        }
+
+        .guide-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-content {
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .research-note {
+            background: #f1f5f9;
+            border-left: 4px solid #6366f1;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .research-note strong {
+            color: #1e293b;
+        }
+
+        .optimal-times {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .time-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .time-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .suggested-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .block-suggestion {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .block-suggestion:hover {
+            border-color: #cbd5e1;
+        }
+
+        .block-info {
+            flex: 1;
+        }
+
+        .block-name {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .block-details {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .add-block-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .add-block-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .principles-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .principles-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        .principles-list li:last-child {
+            border-bottom: none;
+        }
+
+        .principles-list strong {
+            color: #1e293b;
+        }
+
+        /* Form styling */
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -303,10 +389,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            position: relative;
         }
 
         .identity-card:hover {
             border-color: #cbd5e1;
+            transform: translateY(-2px);
         }
 
         .identity-card.active {
@@ -341,6 +429,27 @@
         .identity-habits {
             font-size: 0.75rem;
             opacity: 0.8;
+        }
+
+        .info-badge {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .identity-card.active .info-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         /* AI Habit Stacks */
@@ -798,26 +907,6 @@
             vertical-align: middle;
         }
 
-        /* Offline indicator */
-        .offline-indicator {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: #ef4444;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            z-index: 1000;
-        }
-
-        .offline-indicator.show {
-            display: flex;
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .identity-grid {
@@ -832,11 +921,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .install-banner {
-                bottom: 1rem;
-                left: 1rem;
-                right: 1rem;
-                transform: none;
+            .optimal-times {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -866,25 +952,29 @@
             .action-buttons {
                 flex-direction: column;
             }
+
+            .optimal-times {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Offline Indicator -->
-    <div class="offline-indicator" id="offline-indicator">
-        <span>⚠️</span>
-        <span>You're offline - changes won't be saved</span>
-    </div>
-
-    <!-- Install Banner -->
-    <div class="install-banner" id="install-banner">
-        <span>📱 Install Identity Calendar as an app!</span>
-        <button class="install-btn" id="install-btn">Install</button>
-        <button class="close-banner" id="close-banner">×</button>
+    <!-- Identity Guide Modal -->
+    <div class="modal-overlay" id="guide-modal">
+        <div class="modal guide-modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="guide-title">The Creator</h3>
+                <button class="modal-close" id="guide-close">×</button>
+            </div>
+            <div id="guide-content">
+                <!-- Content will be populated dynamically -->
+            </div>
+        </div>
     </div>
 
     <!-- Add/Edit Block Modal -->
-    <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-overlay" id="block-modal">
         <div class="modal">
             <div class="modal-header">
                 <h3 class="modal-title" id="modal-title">Add Time Block</h3>
@@ -975,20 +1065,24 @@
 
             <div class="identity-grid">
                 <div class="identity-card creator active" data-identity="creator">
+                    <span class="info-badge">ℹ</span>
                     <div class="identity-name">The Creator</div>
-                    <div class="identity-habits">3 core habits</div>
+                    <div class="identity-habits">Click for guidance</div>
                 </div>
                 <div class="identity-card leader" data-identity="leader">
+                    <span class="info-badge">ℹ</span>
                     <div class="identity-name">The Leader</div>
-                    <div class="identity-habits">3 core habits</div>
+                    <div class="identity-habits">Click for guidance</div>
                 </div>
                 <div class="identity-card athlete" data-identity="athlete">
+                    <span class="info-badge">ℹ</span>
                     <div class="identity-name">The Athlete</div>
-                    <div class="identity-habits">3 core habits</div>
+                    <div class="identity-habits">Click for guidance</div>
                 </div>
                 <div class="identity-card scholar" data-identity="scholar">
+                    <span class="info-badge">ℹ</span>
                     <div class="identity-name">The Scholar</div>
-                    <div class="identity-habits">3 core habits</div>
+                    <div class="identity-habits">Click for guidance</div>
                 </div>
             </div>
         </div>
@@ -1059,7 +1153,7 @@
         <!-- Calendar Card -->
         <div class="card">
             <div class="edit-mode-banner">
-                ✏️ Click any empty cell to add a time block, or click existing blocks to edit them
+                ✏️ Click identity cards above for research-backed scheduling guidance • Click cells to add blocks
             </div>
 
             <div class="calendar-header">
@@ -1159,364 +1253,7 @@
         </div>
     </div>
 
-    <script>
-        // PWA Installation
-        let deferredPrompt;
-        const installBanner = document.getElementById('install-banner');
-        const installBtn = document.getElementById('install-btn');
-        const closeBanner = document.getElementById('close-banner');
-
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('App is already installed');
-        }
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBanner.classList.add('show');
-        });
-
-        installBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            }
-            
-            deferredPrompt = null;
-            installBanner.classList.remove('show');
-        });
-
-        closeBanner.addEventListener('click', () => {
-            installBanner.classList.remove('show');
-        });
-
-        // Offline/Online Detection
-        const offlineIndicator = document.getElementById('offline-indicator');
-
-        window.addEventListener('offline', () => {
-            offlineIndicator.classList.add('show');
-        });
-
-        window.addEventListener('online', () => {
-            offlineIndicator.classList.remove('show');
-        });
-
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/identity-calendar/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered:', registration);
-                    })
-                    .catch(error => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            });
-        }
-
-        // Data
-        const identities = {
-            creator: {
-                tagline: 'I am someone who creates meaningful work',
-                color: 'creator'
-            },
-            leader: {
-                tagline: 'I am someone who empowers others',
-                color: 'leader'
-            },
-            athlete: {
-                tagline: 'I am someone who honors my body',
-                color: 'athlete'
-            },
-            scholar: {
-                tagline: 'I am someone who grows every day',
-                color: 'scholar'
-            }
-        };
-
-        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        
-        const energyZones = {
-            peak: { hours: [8, 9, 10, 11], class: 'energy-peak' },
-            high: { hours: [6, 7, 14, 15, 16], class: 'energy-high' },
-            moderate: { hours: [12, 13, 17, 18, 19], class: 'energy-moderate' },
-            low: { hours: [20, 21, 22, 23, 0, 1, 2, 3, 4, 5], class: 'energy-low' }
-        };
-
-        const defaultTimeBlocks = [
-            { day: 0, startHour: 6, duration: 2, type: 'creator', label: 'Deep Work' },
-            { day: 0, startHour: 12, duration: 1, type: 'leader', label: 'Team Sync' },
-            { day: 0, startHour: 17, duration: 1, type: 'athlete', label: 'Workout' },
-            { day: 1, startHour: 6, duration: 2, type: 'creator', label: 'Creative Work' },
-            { day: 2, startHour: 8, duration: 3, type: 'creator', label: 'Client Projects' },
-            { day: 3, startHour: 6, duration: 1, type: 'scholar', label: 'Learning' },
-            { day: 4, startHour: 6, duration: 2, type: 'creator', label: 'Content Creation' },
-            { day: 5, startHour: 9, duration: 3, type: 'leader', label: 'Strategy Planning' },
-            { day: 6, startHour: 8, duration: 2, type: 'athlete', label: 'Recovery & Reflect' }
-        ];
-
-        // Load data from localStorage or use defaults
-        let timeBlocks = JSON.parse(localStorage.getItem('timeBlocks')) || defaultTimeBlocks;
-        let currentIdentity = localStorage.getItem('currentIdentity') || 'creator';
-        let currentView = localStorage.getItem('currentView') || 'energy';
-        let editingBlockIndex = null;
-
-        // Modal management
-        const modalOverlay = document.getElementById('modal-overlay');
-        const modalTitle = document.getElementById('modal-title');
-        const modalClose = document.getElementById('modal-close');
-        const blockForm = document.getElementById('block-form');
-        const cancelBtn = document.getElementById('cancel-btn');
-        const deleteBtn = document.getElementById('delete-btn');
-
-        // Populate hour select
-        const blockHourSelect = document.getElementById('block-hour');
-        for (let hour = 6; hour <= 22; hour++) {
-            const option = document.createElement('option');
-            option.value = hour;
-            option.textContent = formatHour(hour);
-            blockHourSelect.appendChild(option);
-        }
-
-        function openModal(day = null, hour = null, blockIndex = null) {
-            editingBlockIndex = blockIndex;
-            
-            if (blockIndex !== null) {
-                // Editing existing block
-                const block = timeBlocks[blockIndex];
-                modalTitle.textContent = 'Edit Time Block';
-                document.getElementById('block-day').value = block.day;
-                document.getElementById('block-hour').value = block.startHour;
-                document.getElementById('block-duration').value = block.duration;
-                document.getElementById('block-label').value = block.label;
-                document.getElementById('block-type').value = block.type;
-                deleteBtn.style.display = 'block';
-            } else {
-                // Adding new block
-                modalTitle.textContent = 'Add Time Block';
-                blockForm.reset();
-                if (day !== null) document.getElementById('block-day').value = day;
-                if (hour !== null) document.getElementById('block-hour').value = hour;
-                document.getElementById('block-type').value = currentIdentity;
-                deleteBtn.style.display = 'none';
-            }
-            
-            modalOverlay.classList.add('show');
-        }
-
-        function closeModal() {
-            modalOverlay.classList.remove('show');
-            editingBlockIndex = null;
-        }
-
-        modalClose.addEventListener('click', closeModal);
-        cancelBtn.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) closeModal();
-        });
-
-        blockForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const newBlock = {
-                day: parseInt(document.getElementById('block-day').value),
-                startHour: parseInt(document.getElementById('block-hour').value),
-                duration: parseInt(document.getElementById('block-duration').value),
-                label: document.getElementById('block-label').value,
-                type: document.getElementById('block-type').value
-            };
-
-            if (editingBlockIndex !== null) {
-                // Update existing block
-                timeBlocks[editingBlockIndex] = newBlock;
-            } else {
-                // Add new block
-                timeBlocks.push(newBlock);
-            }
-
-            saveState();
-            generateCalendar();
-            updateStats();
-            closeModal();
-        });
-
-        deleteBtn.addEventListener('click', () => {
-            if (editingBlockIndex !== null && confirm('Delete this time block?')) {
-                timeBlocks.splice(editingBlockIndex, 1);
-                saveState();
-                generateCalendar();
-                updateStats();
-                closeModal();
-            }
-        });
-
-        // Reset button
-        document.getElementById('reset-btn').addEventListener('click', () => {
-            if (confirm('Reset to sample week? This will delete your custom schedule.')) {
-                timeBlocks = [...defaultTimeBlocks];
-                saveState();
-                generateCalendar();
-                updateStats();
-            }
-        });
-
-        // State management functions
-        function saveState() {
-            localStorage.setItem('timeBlocks', JSON.stringify(timeBlocks));
-            localStorage.setItem('currentIdentity', currentIdentity);
-            localStorage.setItem('currentView', currentView);
-        }
-
-        function getEnergyZone(hour) {
-            for (const [zone, data] of Object.entries(energyZones)) {
-                if (data.hours.includes(hour)) return data.class;
-            }
-            return '';
-        }
-
-        function formatHour(hour) {
-            if (hour === 0) return '12 AM';
-            if (hour < 12) return `${hour} AM`;
-            if (hour === 12) return '12 PM';
-            return `${hour - 12} PM`;
-        }
-
-        function generateCalendar() {
-            const table = document.getElementById('calendar-table');
-            table.innerHTML = '';
-
-            // Header row
-            const headerRow = document.createElement('tr');
-            headerRow.innerHTML = `<th class="time-header">Time</th>`;
-            days.forEach((day, idx) => {
-                const blockCount = timeBlocks.filter(b => b.day === idx).length;
-                headerRow.innerHTML += `
-                    <th>
-                        <div class="day-header">
-                            <span class="day-name">${day}</span>
-                            <span class="day-count">${blockCount} blocks</span>
-                        </div>
-                    </th>
-                `;
-            });
-            table.appendChild(headerRow);
-
-            // Time rows (6 AM - 10 PM)
-            for (let hour = 6; hour <= 22; hour++) {
-                const row = document.createElement('tr');
-                const energyClass = currentView === 'energy' ? getEnergyZone(hour) : '';
-                
-                row.innerHTML = `<td class="time-cell ${energyClass}">${formatHour(hour)}</td>`;
-                
-                days.forEach((day, dayIdx) => {
-                    const cell = document.createElement('td');
-                    cell.className = energyClass;
-                    cell.dataset.day = dayIdx;
-                    cell.dataset.hour = hour;
-                    
-                    // Check if this cell is the start of a block
-                    const blockIndex = timeBlocks.findIndex(b => b.day === dayIdx && b.startHour === hour);
-                    const block = blockIndex >= 0 ? timeBlocks[blockIndex] : null;
-                    
-                    if (block) {
-                        cell.classList.add('has-block');
-                        const blockDiv = document.createElement('div');
-                        blockDiv.className = `time-block ${block.type}`;
-                        blockDiv.style.height = `${block.duration * 48 - 4}px`;
-                        blockDiv.innerHTML = `
-                            <div class="block-label">${block.label}</div>
-                            <div class="block-duration">${block.duration}h</div>
-                        `;
-                        blockDiv.addEventListener('click', () => openModal(null, null, blockIndex));
-                        cell.appendChild(blockDiv);
-                    } else {
-                        // Only add click handler if cell is not occupied by a block
-                        const isOccupied = timeBlocks.some(b => 
-                            b.day === dayIdx && hour >= b.startHour && hour < b.startHour + b.duration
-                        );
-                        
-                        if (!isOccupied) {
-                            cell.addEventListener('click', () => openModal(dayIdx, hour));
-                        }
-                    }
-                    
-                    row.appendChild(cell);
-                });
-                
-                table.appendChild(row);
-            }
-        }
-
-        function updateStats() {
-            const totalScheduled = timeBlocks.reduce((acc, block) => acc + block.duration, 0);
-            const available = 168 - totalScheduled;
-            const percentage = Math.round((totalScheduled / 56) * 100);
-            
-            document.getElementById('scheduled-hours').textContent = totalScheduled;
-            document.getElementById('available-hours').textContent = available;
-            document.getElementById('progress-percentage').textContent = `${percentage}% of intentional time`;
-            document.getElementById('progress-fill').style.width = `${percentage}%`;
-        }
-
-        function switchIdentity(identity) {
-            currentIdentity = identity;
-            
-            // Update active state
-            document.querySelectorAll('.identity-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            document.querySelector(`[data-identity="${identity}"]`).classList.add('active');
-            
-            // Update tagline
-            document.getElementById('identity-tagline').textContent = `"${identities[identity].tagline}"`;
-            
-            // Update progress bar color
-            document.getElementById('progress-fill').className = `progress-fill ${identity}`;
-            
-            saveState();
-        }
-
-        function switchView(view) {
-            currentView = view;
-            
-            // Update buttons
-            document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-view="${view}"]`).classList.add('active');
-            
-            // Show/hide legend
-            document.getElementById('energy-legend').style.display = view === 'energy' ? 'flex' : 'none';
-            
-            // Regenerate calendar
-            generateCalendar();
-            saveState();
-        }
-
-        // Event Listeners
-        document.querySelectorAll('.identity-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                const identity = e.currentTarget.dataset.identity;
-                switchIdentity(identity);
-            });
-        });
-
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const view = e.currentTarget.dataset.view;
-                switchView(view);
-            });
-        });
-
-        // Initialize
-        switchIdentity(currentIdentity);
-        switchView(currentView);
-        generateCalendar();
-        updateStats();
-    </script>
+    <script src="identity-guide-data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
